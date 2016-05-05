@@ -1,0 +1,54 @@
+* {
+    font-size: 15px;
+}
+
+.wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 400px;
+    height: 100px;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+    padding: 5px;    
+}
+
+.form-login {
+    text-align: center;
+}
+
+.form-title {
+    font-size: 1rem;
+    margin: 10px 0 20px 0;
+    text-align: center;
+    color: dodgerblue;
+}
+
+.form-login input,
+.form-login button {
+    outline: none;
+    font-size: .8rem;
+    border-radius: 5px;
+    border: 1px solid dodgerblue;
+    padding: 5px;
+    margin: 0 5px;
+}
+.form-login input {
+    width: 130px;
+}
+.form-login__submit {
+    color: white;
+    background: dodgerblue;
+    &:hover {
+        color: dodgerblue;
+        background: white;
+    }
+    &:active {
+        color: white;
+        background: orange;
+        border: 1px solid white;
+    }
+}
