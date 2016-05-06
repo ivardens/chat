@@ -9,4 +9,4 @@
 
 #server:
 * npm i
-* npm start
+* npm start or node index.js 
