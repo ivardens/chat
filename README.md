@@ -1,8 +1,8 @@
 # chat
 
-npm i
-gulp
+#npm i
+#gulp
 
-server:
-npm i
-npm start
+#server:
+#npm i
+#npm start
