@@ -1,4 +1,8 @@
 (function () {
+    var inputName = document.querySelector('.form-login__login');
+    var inputPass = document.querySelector('.form-login__password');
+    var formTitle = document.querySelector('.form-title');
+    
     return new Promise(function (resolve) {
         window.onload = (resolve);
     }).then(function () {
@@ -14,14 +18,14 @@
 
             function formLogin() {
                 res.length = 0;
-                res.push(login = document.querySelector('.form-login__login').value);
-                res.push(password = document.querySelector('.form-login__password').value);
+                res.push(login = inputName.value);
+                res.push(password = inputPass.value);
                 for (var item in res) {
                     if (/^[a-z0-9_\-]+$/.test(res[item])) {
-                        document.querySelector('.form-title').innerText = 'добро пожаловать в чат ' + res[0];
+                        formTitle.innerText = 'добро пожаловать в чат ' + res[0];
                         resolve(res);
                     } else {
-                        document.querySelector('.form-title').innerText = res[item] + ' - введены недопустимые символы';
+                        formTitle.innerText = res[item] + ' - введены недопустимые символы';
                         return false;
                     }
                 }
@@ -46,6 +50,7 @@
 
         // Отправка данных на сервер
         function sendLogin(arg) {
+            console.log(arg);
             sendAjax({
                 op: 'reg',
                 data: {
@@ -64,14 +69,14 @@
             xhr.responseType = 'json';
             xhr.open('post', 'http://localhost:5000', true);
             xhr.onload = function () {
-                console.log(xhr.response);
+                console.log('response', xhr.response);
                 resolve(xhr.response);
             };
             xhr.send(JSON.stringify(data));
         });
     }
     function clearForm() {
-        document.querySelector('.form-login__login').value = '';
-        document.querySelector('.form-login__password').value = '';
+        inputName.value = '';
+        inputPass.value = '';
     }
 })();
