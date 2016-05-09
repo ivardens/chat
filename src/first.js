@@ -2,7 +2,7 @@
     var inputName = document.querySelector('.form-login__login');
     var inputPass = document.querySelector('.form-login__password');
     var formTitle = document.querySelector('.form-title');
-    
+
     return new Promise(function (resolve) {
         window.onload = (resolve);
     }).then(function () {
@@ -37,28 +37,41 @@
         var socket = new WebSocket('ws://localhost:5000');
 
         socket.onmessage = function (e) {
-            console.log(e.data);
+            //console.log(e.data);
+            //onmessageHandler(e);
+            
         }
         socket.onerror = function (e) {
-            console.log(e);
+            //console.log(e);
         }
         socket.onopen = function (e) {
-
-        }
-
-        sendLogin(res);
-
-        // Отправка данных на сервер
-        function sendLogin(arg) {
-            console.log(arg);
-            sendAjax({
+            socket.send(JSON.stringify({
                 op: 'reg',
                 data: {
-                    name: arg[0],
-                    login: arg[1]
+                    name: res[0],
+                    login: res[1]
                 }
-            })
+            }));
         }
+        
+        function onmessageHandler (arg) {
+            //console.log('111',arg);
+            //document.getElementsByClassName('wrap-message').innerText = arg[token];
+            
+        }
+
+        //sendLogin(res);
+        // Отправка данных на сервер
+        // function sendLogin(arg) {
+        //     console.log(arg);
+        //     sendAjax({
+        //         op: 'reg',
+        //         data: {
+        //             name: arg[0],
+        //             login: arg[1]
+        //         }
+        //     })
+        // }
 
     });
 

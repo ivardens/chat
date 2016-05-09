@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 html(lang="en")
-head
-    meta(charset="UTF-8")
-    title Document
-    link(rel='stylesheet' href='./main.css')
-body
-    .wrap
-        .form-title authentication in the chat
-        form.form-login(action="" name="form-login")
-            input.form-login__login(name="login" type="text" placeholder="login" required)
-            input.form-login__password(name="password" type="password" placeholder="password" required)
-            button.form-login__submit(type="submit") welcome
-            
-    script(src="./main.js")
+    head
+        meta(charset="UTF-8")
+        title Document
+        link(rel='stylesheet' href='./main.css')
+        body
+            .wrap-message
+            .wrap
+                .form-title authentication in the chat
+                form.form-login(action="" name="form-login")
+                    input.form-login__login(name="login" type="text" placeholder="login" required)
+                    input.form-login__password(name="password" type="password" placeholder="password" required)
+                    button.form-login__submit(type="submit") welcome
+                    
+            script(src="./main.js")
