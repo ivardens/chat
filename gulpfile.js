@@ -51,8 +51,8 @@ gulp.task('css', function () {
         //cs snano(),
     ];
     return gulp.src('./src/*.css')
+        .pipe(concat('main.css'))
         .pipe(postcss(processors))
-        .pipe(rename('main.css'))
         .pipe(gulp.dest('./dist'));
 });
 

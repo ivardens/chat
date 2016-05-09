@@ -39,7 +39,7 @@
         socket.onmessage = function (e) {
             //console.log(e.data);
             //onmessageHandler(e);
-            
+
         }
         socket.onerror = function (e) {
             //console.log(e);
@@ -53,11 +53,11 @@
                 }
             }));
         }
-        
+
         function onmessageHandler (arg) {
             //console.log('111',arg);
             //document.getElementsByClassName('wrap-message').innerText = arg[token];
-            
+
         }
 
         //sendLogin(res);
