@@ -8,8 +8,11 @@ html(lang="en")
             .wrap
                 .wrap-users
                 .wrap-message
-                    .wrap-message--write q
-                    
+                    .wrap-message--write
+                        form.form-message(action="" name="form-message")
+                          textarea.form-message__text(name="login" type="text" placeholder="writing the message here" required)
+                          button.form-message__submit(type="submit") send
+                        
                      .wrap-login
                          .wrap-login--title authentication in the chat
                          form.form-login(action="" name="form-login")

@@ -35,8 +35,8 @@ html, body {
         flex: 1 0 auto;
         align-self: flex-end;
         background-color: bisque;
-        min-height: 100px;
-        padding: 5px;
+        min-height: 50px;
+        /*padding: 5px;*/
     }
 }
 .wrap-login {
@@ -71,6 +71,31 @@ html, body {
     }
     & input {
         width: 130px;
+    }
+    &__submit {
+        color: white;
+        background: dodgerblue;
+        &:hover {
+            color: dodgerblue;
+            background: white;
+        }
+        &:active {
+            color: white;
+            background: orange;
+            border: 1px solid white;
+        }
+    }
+}
+.form-message .form-message {
+    &__text, &__submit {
+        display: block;
+        outline: none;
+        font-size: .8rem;
+        /*border-radius: 5px;*/
+        border: 1px solid dodgerblue;
+        padding: 5px;
+        margin: 0px;
+        width: 100%;
     }
     &__submit {
         color: white;
