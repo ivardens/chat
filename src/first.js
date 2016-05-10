@@ -1,7 +1,7 @@
 (function () {
     var inputName = document.querySelector('.form-login__login');
     var inputPass = document.querySelector('.form-login__password');
-    var formTitle = document.querySelector('.form-title');
+    var formTitle = document.querySelector('.wrap-login--title');
 
     return new Promise(function (resolve) {
         window.onload = (resolve);
@@ -37,12 +37,13 @@
         var socket = new WebSocket('ws://localhost:5000');
 
         socket.onmessage = function (e) {
-            //console.log(e.data);
-            //onmessageHandler(e);
+            // console.log(e.data);
+            // console.log(e);
+            onmessageHandler(e.data);
 
         }
         socket.onerror = function (e) {
-            //console.log(e);
+            console.log(e);
         }
         socket.onopen = function (e) {
             socket.send(JSON.stringify({
@@ -54,9 +55,10 @@
             }));
         }
 
-        function onmessageHandler (arg) {
-            //console.log('111',arg);
-            //document.getElementsByClassName('wrap-message').innerText = arg[token];
+        function onmessageHandler (e) {
+            var arg = JSON.parse(e);
+            console.log(arg);
+            document.querySelector('.wrap-message--text').innerText = arg.users[0].name + ' : ' + arg.messages[0];
 
         }
 
