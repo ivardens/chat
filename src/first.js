@@ -2,6 +2,7 @@
     var inputName = document.querySelector('.form-login__login');
     var inputPass = document.querySelector('.form-login__password');
     var formTitle = document.querySelector('.wrap-login--title');
+    var users = [];
 
     return new Promise(function (resolve) {
         window.onload = (resolve);
@@ -56,10 +57,12 @@
         }
 
         function onmessageHandler (e) {
+            users.push(e);
             var arg = JSON.parse(e);
             console.log(arg);
+            document.querySelector('.wrap-login').style = 'display: none';
             document.querySelector('.wrap-message--text').innerText = arg.users[0].name + ' : ' + arg.messages[0];
-
+            console.log(users);
         }
 
         //sendLogin(res);
