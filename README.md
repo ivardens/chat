@@ -1,4 +1,4 @@
-Just started, not finished - just no time :(
+#Just started, not finished - just no time :(
 
 # chat
 
