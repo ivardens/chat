@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var plumber = require('gulp-plumber');
 var browserSync = require('browser-sync').create();
 var jade = require('gulp-jade');
 var rename = require("gulp-rename");
@@ -29,12 +30,14 @@ gulp.task('serve', function () {
 
 gulp.task('jade', function () {
     return gulp.src('./src/*.jade')
-        .pipe(jade())
+        .pipe(plumber())
+        .pipe(jade({pretty: true}))
         .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('js', function () {
     return gulp.src('./src/*.js')
+        .pipe(plumber())
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./dist/'));
 });
@@ -51,6 +54,7 @@ gulp.task('css', function () {
         //cs snano(),
     ];
     return gulp.src('./src/*.css')
+        .pipe(plumber())
         .pipe(concat('main.css'))
         .pipe(postcss(processors))
         .pipe(gulp.dest('./dist'));

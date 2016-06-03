@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
     var inputName = document.querySelector('.form-login__login');
     var inputPass = document.querySelector('.form-login__password');
@@ -56,7 +58,7 @@
             }));
         }
 
-        function onmessageHandler (e) {
+        function onmessageHandler(e) {
             users.push(e);
             var arg = JSON.parse(e);
             console.log(arg);
@@ -93,6 +95,7 @@
             xhr.send(JSON.stringify(data));
         });
     }
+
     function clearForm() {
         inputName.value = '';
         inputPass.value = '';
